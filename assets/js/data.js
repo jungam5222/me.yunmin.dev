@@ -52,8 +52,6 @@ window.CV = {
       title: 'Competitions',
       sub: '해커톤 · 데이터톤',
       items: [
-        { date: '2026.11', title: 'AIKU톤', org: '고려대학교 인공지능 학회 AIKU', type: 'datathon' },
-        { date: '2026.10', title: 'Inthon 데이터톤 트랙', org: '고려대학교 정보대학', type: 'datathon' },
         {
           date: '2026.08', title: 'AIKU 주니어톤', org: '고려대학교 인공지능 학회 AIKU', type: 'datathon', result: '1위',
           desc: '손글씨 필기 사진을 보고 누구의 필기인지 분류하는 이미지 분류 문제.',
@@ -61,7 +59,7 @@ window.CV = {
         },
         {
           date: '2026.06 – 2026.09', title: 'LG Aimers 9기', org: 'LG AI연구원', type: 'datathon', result: '상위 4%',
-          desc: '투구 데이터를 바탕으로 제구 성공률을 예측. 리더보드 상위 4%.',
+          desc: '투구 데이터를 바탕으로 제구 성공률을 예측. 야구 도메인 지식을 바탕으로 EDA 수행 및 모델 개발에 참여. 리더보드 상위 4%.',
           links: [{ label: '자세히', url: 'https://yunmin.dev/projects/lg-aimers-9/' }],
         },
         {
@@ -71,7 +69,7 @@ window.CV = {
         },
         {
           date: '2025.10', title: 'NASA Space Apps Challenge', org: 'NASA', type: 'hackathon',
-          desc: '첫 해커톤 참가.',
+          desc: '첫 해커톤 참가. AI 분야(Tabular data 기반 모델 개발, LLM API 활용) 전담.',
           links: [{ label: '자세히', url: 'https://yunmin.dev/projects/nasa-space-apps-2025/' }],
         },
       ],
@@ -89,6 +87,9 @@ window.CV = {
           date: '2023.03 – 2023.11', title: '레고 블록 Object Detection', org: 'R&E 경진대회 · 정보과학 분야',
           desc: '레고 블록을 찾아내는 Object Detection 모델 개발.',
           links: [{ label: '자세히', url: 'https://yunmin.dev/projects/rne-lego-detection/' }],
+        },
+        {
+          date: '2022.03 – 2022.11', title: '학교 웹사이트 개발', org: 'R&E 경진대회 · 정보과학 분야',
         },
       ],
     },
@@ -118,7 +119,11 @@ window.CV = {
       title: 'Activities',
       sub: '학생회 · 동아리',
       items: [
+        { date: '2026.07 – 현재', title: 'AIKU', org: '정보대학 인공지능 학회' },
+        { date: '2026.03 – 현재', title: 'KUICS', org: '정보대학 보안 동아리' },
         { date: '2025.11 – 2026.11', title: '컴퓨터학과 부학생회장', org: '고려대학교 컴퓨터학과 제2대 학생회 \'영원\'' },
+        { date: '2025.03 – 현재', title: 'Liberty', org: '정보대학 밴드 동아리' },
+        { date: '2025.03 – 2026.01', title: '백구회', org: '중앙동아리 야구부' },
       ],
     },
     {
@@ -126,10 +131,10 @@ window.CV = {
       sub: '기술',
       // 스킬은 줄 단위로: group 이름 + items
       skills: [
-        { group: 'AI / ML', items: ['Python', 'PyTorch', 'scikit-learn'], placeholder: true },
-        { group: 'Data',    items: ['pandas', 'SQL'], placeholder: true },
-        { group: 'Web',     items: ['HTML/CSS/JS', 'Cloudflare Workers', 'Supabase'], placeholder: true },
-        { group: 'Tools',   items: ['Git', 'Jupyter', 'Claude'], placeholder: true },
+        { group: 'AI / ML', items: ['Python', 'PyTorch', 'scikit-learn'] },
+        { group: 'Data',    items: ['pandas', 'SQL'] },
+        { group: 'Web',     items: ['HTML/CSS/JS', 'Cloudflare Workers'] },
+        { group: 'Tools',   items: ['Git', 'Claude'] },
       ],
     },
   ],

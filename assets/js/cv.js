@@ -15,8 +15,6 @@
   // 섹션 번호 색: 빨강 → 주황 → 노랑 → ... → 분홍
   const ORDER = H.COLOR_KEYS;
   const seq = (i) => ORDER[i % ORDER.length];
-  // 밝은 색 위에는 흰 글씨 대신 진한 글씨
-  const LIGHT = ['yellow', 'lime'];
   const TYPE = { hackathon: { label: '해커톤', color: 'pink' }, datathon: { label: '데이터톤', color: 'yellow' } };
 
   // 시작 날짜(YYYY.MM)가 이번 달보다 뒤면 '예정'
@@ -48,7 +46,7 @@
   function item(it, color, seed) {
     const type = TYPE[it.type];
     const tags = [
-      it.result ? `<span class="result${LIGHT.includes(color) ? ' light' : ''}" style="--c:${hex(color)}">${esc(it.result)}</span>` : '',
+      it.result ? `<span class="result" style="--c:${hex(color)}">${esc(it.result)}</span>` : '',
       type ? `<span class="tag" style="--c:${hex(type.color)}">${type.label}</span>` : '',
       isUpcoming(it.date) ? '<span class="tag soon">예정</span>' : '',
     ].join('');
