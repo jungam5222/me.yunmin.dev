@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>추락! · me.yunmin.dev</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FBF8F1">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/cv.css">
+  <style>
+    .fall { min-height: 80vh; display: grid; place-items: center; text-align: center; }
+    .fall h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 800; margin-top: 16px; }
+    .fall p { color: var(--ink-2); margin: 10px 0 24px; }
+    .fall .hold-svg { margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <main class="wrap fall">
+    <div>
+      <div id="hold"></div>
+      <h1>추락! 🧗</h1>
+      <p>찾으시는 페이지가 이 벽에는 없네요.</p>
+      <a class="btn" href="/">CV로 돌아가기</a>
+    </div>
+  </main>
+  <script src="/assets/js/holds.js"></script>
+  <script>document.getElementById('hold').innerHTML = Holds.svg({ seed: Date.now() % 9999, size: 96 });</script>
+</body>
+</html>
