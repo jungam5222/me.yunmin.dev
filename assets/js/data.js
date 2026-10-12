@@ -44,8 +44,9 @@ window.CV = {
       title: 'Education',
       sub: '학력',
       items: [
-        { date: '2025.03 – Now', title: '고려대학교', org: '컴퓨터학과 · 2학년 재학' },
-        { date: '2022.03 – 2025.01', title: '광주과학고등학교', org: '정보과학 전공 졸업' },
+        { date: '2026.09 – Now', title: 'Korea University', org: 'Double Major in Mathematics, Bachelor of Science (B.S.)' },
+        { date: '2025.03 – Now', title: 'Korea University', org: 'Major in Computer Science and Engineering, Bachelor of Science (B.S.)' },
+        { date: '2022.03 – 2025.01', title: 'Gwangju Science Academy for the Gifted (광주과학고등학교)', org: 'Information Science/Studies' },
       ],
     },
     {
@@ -76,7 +77,7 @@ window.CV = {
     },
     {
       title: 'Research',
-      sub: '고등학교 연구',
+      sub: '연구 활동',
       items: [
         {
           date: '2023.07', title: 'CNN 기반 폐렴 진단', org: '전국 과학전람회', result: '우수상',
@@ -124,6 +125,7 @@ window.CV = {
         { date: '2025.11 – Now', title: '컴퓨터학과 부학생회장', org: '고려대학교 컴퓨터학과 제2대 학생회 \'영원\'' },
         { date: '2025.03 – Now', title: 'Liberty', org: '정보대학 밴드 동아리' },
         { date: '2025.03 – 2026.01', title: '백구회', org: '중앙동아리 야구부' },
+        { date: '2022.03 - 2024.12', title: '!DEA', org: '광주과학고등학교 정보과학 동아리' }
       ],
     },
     {
