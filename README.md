@@ -25,7 +25,7 @@ assets/js/data.js     CV 내용
 assets/js/cv.js       렌더링
 assets/js/holds.js    클라이밍 홀드 SVG 생성기 (my-site와 같은 파일)
 assets/css/cv.css     스타일 (화면 + 인쇄)
-wrangler.jsonc        Cloudflare Workers 설정
+wrangler.jsonc        Cloudflare Workers 설정 (Worker 이름: cv-site)
 ```
 
 ## 로컬에서 보기
