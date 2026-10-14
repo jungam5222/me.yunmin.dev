@@ -54,6 +54,10 @@ window.CV = {
       sub: '해커톤 · 데이터톤',
       items: [
         {
+          date: '2026.09', title: '연고전 AI 해커톤', org: '연세대학교 인공지능융합대학 학생회 X 고려대학교 정보대학 학생회', type: 'hackathon', result: '27 / 104',
+          desc: '"깃발대항전" 게임 Agent 개발. 리더보드 순위 27/104.',
+        },
+        {
           date: '2026.08', title: 'AIKU 주니어톤', org: '고려대학교 인공지능 학회 AIKU', type: 'datathon', result: '1위',
           desc: '손글씨 필기 사진을 보고 누구의 필기인지 분류하는 이미지 분류 문제.',
           links: [{ label: '자세히', url: 'https://yunmin.dev/projects/aiku-juniorthon/' }],
