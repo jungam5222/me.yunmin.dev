@@ -60,22 +60,18 @@ window.CV = {
         {
           date: '2026.08', title: 'AIKU 주니어톤', org: '고려대학교 인공지능 학회 AIKU', type: 'datathon', result: '1위',
           desc: '손글씨 필기 사진을 보고 누구의 필기인지 분류하는 이미지 분류 문제.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/aiku-juniorthon/' }],
         },
         {
           date: '2026.06 – 2026.09', title: 'LG Aimers 9기', org: 'LG AI연구원', type: 'datathon', result: '상위 4%',
           desc: '투구 데이터를 바탕으로 제구 성공률을 예측. 야구 도메인 지식을 바탕으로 EDA 수행 및 모델 개발에 참여. 리더보드 상위 4%.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/lg-aimers-9/' }],
         },
         {
           date: '2025.11', title: 'Inthon 데이터톤 트랙', org: '고려대학교 정보대학', type: 'datathon',
           desc: '첫 데이터톤 참가.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/inthon-2025/' }],
         },
         {
           date: '2025.10', title: 'NASA Space Apps Challenge', org: 'NASA', type: 'hackathon',
           desc: '첫 해커톤 참가. AI 분야(Tabular data 기반 모델 개발, LLM API 활용) 전담.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/nasa-space-apps-2025/' }],
         },
       ],
     },
@@ -86,12 +82,10 @@ window.CV = {
         {
           date: '2023.07', title: 'CNN 기반 폐렴 진단', org: '전국 과학전람회', result: '우수상',
           desc: 'CNN 기법으로 흉부 X선의 폐렴 여부를 진단하고 정밀도, 재현율, F1 score를 분석.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/science-fair-pneumonia/' }],
         },
         {
           date: '2023.03 – 2023.11', title: '레고 블록 Object Detection', org: 'R&E 경진대회 · 정보과학 분야',
           desc: '레고 블록을 찾아내는 Object Detection 모델 개발.',
-          links: [{ label: '자세히', url: 'https://yunmin.dev/projects/rne-lego-detection/' }],
         },
         {
           date: '2022.03 – 2022.11', title: '학교 웹사이트 개발', org: 'R&E 경진대회 · 정보과학 분야',
@@ -105,18 +99,10 @@ window.CV = {
         {
           date: '2026.10', title: '하늘의 별따기', org: '웹 게임',
           desc: '남들이 떠올리지 못한 답일수록 점수가 높은 한국어 낱말 게임. krillion.io를 한국어로 다시 만들었어요.',
-          links: [
-            { label: '게임', url: 'https://game.yunmin.dev/starvest/' },
-            { label: 'GitHub', url: 'https://github.com/jungam5222/game-dev' },
-          ],
         },
         {
           date: '2026.10', title: 'yunmin.dev', org: '개인 웹사이트',
           desc: '클라이밍 홀드를 모티프로 만든 개인 사이트. 정적 HTML/CSS/JS로 만들어 Cloudflare Workers에 배포.',
-          links: [
-            { label: '사이트', url: 'https://yunmin.dev' },
-            { label: 'GitHub', url: 'https://github.com/jungam5222/my-site' },
-          ],
         },
       ],
     },
