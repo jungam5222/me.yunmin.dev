@@ -19,7 +19,7 @@
  *   예: { title: '...', org: '...', en: { title: '...', org: '...' } }
  */
 window.CV = {
-  updated: '2026.10',
+  updated: '2026.11',
 
   profile: {
     nameKo: '홍윤민',
@@ -64,6 +64,16 @@ window.CV = {
       en: { sub: 'Hackathons · Datathons' },
       items: [
         {
+          date: '2026.11', title: 'HAIKUTHON 2026', org: 'AIKU × HAI 연합 데이터톤 (고려대 AIKU · 한양대 HAI)', type: 'datathon',
+          desc: '영문 설명에 맞는 이미지 한 장을 후보 16,000장에서 찾는 Multimodal RAG. FG-CLIP2로 후보를 뽑은 뒤 2단계 재정렬과 "가족" 단위 listwise BLIP 학습을 맡음.',
+          en: { org: 'AIKU × HAI Joint Datathon (Korea Univ. AIKU · Hanyang Univ. HAI)', desc: 'Multimodal RAG: find the one image out of 16,000 that matches an English description. After FG-CLIP2 retrieval, owned the stage-2 reranking and the family-listwise BLIP training.' },
+        },
+        {
+          date: '2026.11', title: 'Inthon 2026 데이터톤 트랙', org: '고려대학교 정보대학', type: 'datathon',
+          desc: '연속된 이미지 시퀀스를 가장 잘 설명하는 문장을 5개 선지 중에서 고르는 멀티모달 추론 문제. 데이터 증강, 텍스트 중심성(medoid) 신호, 발표를 맡음.',
+          en: { title: 'Inthon 2026 Datathon Track', org: 'Korea University College of Informatics', desc: 'Multimodal reasoning: pick the caption that best describes an image sequence out of five. Handled data augmentation, the text-centrality (medoid) signal, and the presentation.' },
+        },
+        {
           date: '2026.09', title: '연고전 AI 해커톤', org: '연세대학교 인공지능융합대학 학생회 X 고려대학교 정보대학 학생회', type: 'hackathon',
           desc: '"깃발대항전" 게임 Agent 개발.',
           en: { title: 'Yonsei × Korea AI Hackathon', org: 'Student councils of Yonsei College of AI Convergence × Korea University College of Informatics', desc: 'Built a game agent for "Flag Battle", a two-player strategy game.' },
@@ -79,9 +89,9 @@ window.CV = {
           en: { title: 'LG Aimers, 9th cohort', org: 'LG AI Research', result: 'Top 4%', desc: 'Predicted pitch command success from pitching data. Ran EDA grounded in baseball knowledge and helped build the model. Top 4% on the leaderboard.' },
         },
         {
-          date: '2025.11', title: 'Inthon 데이터톤 트랙', org: '고려대학교 정보대학', type: 'datathon',
+          date: '2025.11', title: 'Inthon 2025 데이터톤 트랙', org: '고려대학교 정보대학', type: 'datathon',
           desc: '첫 데이터톤 참가.',
-          en: { title: 'Inthon Datathon Track', org: 'Korea University College of Informatics', desc: 'My first datathon.' },
+          en: { title: 'Inthon 2025 Datathon Track', org: 'Korea University College of Informatics', desc: 'My first datathon.' },
         },
         {
           date: '2025.10', title: 'NASA Space Apps Challenge', org: 'NASA', type: 'hackathon',

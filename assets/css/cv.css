@@ -250,7 +250,7 @@ html.style-simple .foot { border-top-style: solid; }
 @media print {
   :root { --wrap: none; }
   html, body { background: #fff; font-size: 10.5pt; line-height: 1.42; }
-  body::before, .topbar, .ph, .foot a { display: none !important; }
+  body::before, .topbar, .ph, .foot { display: none !important; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; }
   .wrap { padding: 0; }
   .hero { padding: 0 0 6px; }
