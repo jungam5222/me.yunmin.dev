@@ -12,6 +12,12 @@
 - 시작 날짜가 이번 달보다 뒤인 항목은 '예정' 배지가 자동으로 붙어요.
 - `placeholder: true` 항목은 화면에 '예시' 배지가 뜹니다(인쇄할 땐 숨김).
 
+## 한국어 / English
+
+오른쪽 위 KO / EN 토글로 언어를 바꿔요. 고른 언어는 브라우저에 기억되고, 주소에 `?lang=en` / `?lang=ko`를 붙이면 그 언어로 열려요. 처음 온 사람은 브라우저 언어가 한국어면 KO, 아니면 EN으로 보여요. (yunmin.dev와 같은 방식, `assets/js/i18n.js`)
+
+영어 글자는 `data.js`의 각 항목 `en: { ... }`에 적어요. `en`에 없는 필드는 한국어가 그대로 나옵니다. 영어로 PDF를 저장하려면 EN으로 바꾼 뒤 'Save as PDF'를 누르면 돼요.
+
 ## PDF
 
 오른쪽 위 'PDF로 저장' 버튼(또는 Ctrl/Cmd + P)으로 A4 한두 장짜리 PDF가 나와요. 인쇄용 스타일이 따로 있어서 배경 점무늬와 버튼은 빠지고, 링크는 주소로 바뀝니다.
@@ -23,6 +29,7 @@ index.html            CV 페이지
 404.html              없는 주소일 때
 assets/js/data.js     CV 내용
 assets/js/cv.js       렌더링
+assets/js/i18n.js     언어 고르기 (KO / EN)
 assets/js/holds.js    클라이밍 홀드 SVG 생성기 (my-site와 같은 파일)
 assets/css/cv.css     스타일 (화면 + 인쇄)
 wrangler.jsonc        Cloudflare Workers 설정 (Worker 이름: cv-site)

@@ -2,20 +2,35 @@
  * cv.js — data.js의 내용을 읽어 CV를 그립니다.
  */
 (function () {
-  const D = window.CV;
+  const EN = window.LANG === 'en';
+  const T = (ko, en) => (EN ? en : ko);
   const H = window.Holds;
+
+  // data.js 안의 en: { ... } 를 영어일 때 덮어씌우고, 한국어일 땐 그냥 지웁니다
+  function localize(v) {
+    if (Array.isArray(v)) return v.map(localize);
+    if (!v || typeof v !== 'object') return v;
+    const out = {};
+    Object.keys(v).forEach((k) => { if (k !== 'en') out[k] = localize(v[k]); });
+    if (EN && v.en && typeof v.en === 'object') Object.keys(v.en).forEach((k) => { out[k] = localize(v.en[k]); });
+    return out;
+  }
+  const D = localize(window.CV);
   const P = D.profile;
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const hex = (c) => H.resolveColor(c);
   const pad = (n) => String(n).padStart(2, '0');
   const ext = (url) => (/^https?:/.test(url) ? ' target="_blank" rel="noopener"' : '');
-  const ph = (o) => (o && o.placeholder ? '<span class="ph" title="아직 채우지 않은 내용">예시</span>' : '');
+  const ph = (o) => (o && o.placeholder ? `<span class="ph" title="${T('아직 채우지 않은 내용', 'Not filled in yet')}">${T('예시', 'sample')}</span>` : '');
 
   // 섹션 번호 색: 빨강 → 주황 → 노랑 → ... → 분홍
   const ORDER = H.COLOR_KEYS;
   const seq = (i) => ORDER[i % ORDER.length];
-  const TYPE = { hackathon: { label: '해커톤', color: 'pink' }, datathon: { label: '데이터톤', color: 'yellow' } };
+  const TYPE = {
+    hackathon: { label: T('해커톤', 'Hackathon'), color: 'pink' },
+    datathon: { label: T('데이터톤', 'Datathon'), color: 'yellow' },
+  };
 
   // 시작 날짜(YYYY.MM)가 이번 달보다 뒤면 '예정'
   const now = new Date();
@@ -30,7 +45,8 @@
   $('logo-hold').innerHTML = H.svg({ seed: 7, type: 'jug', color: 'red', size: 26, rotate: 20 });
   $('updated').textContent = `Updated ${D.updated}`;
   $('name').innerHTML = `${esc(P.nameEn)}<span class="dot">.</span>`;
-  $('sub').innerHTML = [P.nameKo, P.role, P.location].filter(Boolean).map((s) => `<span>${esc(s)}</span>`).join('');
+  $('sub').innerHTML = (EN ? '' : `<span class="name">${esc(P.nameKo)}</span>`) +
+    [P.role, P.location].filter(Boolean).map((s) => `<span>${esc(s)}</span>`).join('');
   $('summary').textContent = P.summary || '';
   $('links').innerHTML = (P.links || []).filter((l) => l.url).map((l) =>
     `<li><span class="link-k">${esc(l.label)}</span><a href="${esc(l.url)}"${ext(l.url)}>${esc(l.text || showUrl(l.url))}</a></li>`).join('');
@@ -40,7 +56,7 @@
       <div><b>${esc(h.value)}</b><span>${esc(h.label)}${h.date ? ` · ${esc(h.date)}` : ''}</span></div>
     </div>`).join('');
   $('foot-name').textContent = `© ${now.getFullYear()} ${P.nameEn}`;
-  document.title = `${P.nameKo} ${P.nameEn} · CV`;
+  document.title = EN ? `${P.nameEn} · CV` : `${P.nameKo} ${P.nameEn} · CV`;
 
   /* ---------- 섹션 ---------- */
   function item(it, color, seed) {
@@ -48,7 +64,7 @@
     const tags = [
       it.result ? `<span class="result" style="--c:${hex(color)}">${esc(it.result)}</span>` : '',
       type ? `<span class="tag" style="--c:${hex(type.color)}">${type.label}</span>` : '',
-      isUpcoming(it.date) ? '<span class="tag soon">예정</span>' : '',
+      isUpcoming(it.date) ? `<span class="tag soon">${T('예정', 'Upcoming')}</span>` : '',
     ].join('');
     const links = (it.links || []).filter((l) => l.url).map((l) =>
       `<a href="${esc(l.url)}"${ext(l.url)}><span class="l-label">${esc(l.label)} ↗</span><span class="l-url">${esc(showUrl(l.url))}</span></a>`).join('');
@@ -92,5 +108,24 @@
       </section>`;
   }).join('');
 
+  /* ---------- 상단 버튼 ---------- */
+  $('print-btn').textContent = T('PDF로 저장', 'Save as PDF');
   $('print-btn').addEventListener('click', () => window.print());
+  const toggle = $('lang-toggle');
+  toggle.innerHTML = `<span${EN ? '' : ' class="on"'}>KO</span><span class="sep">/</span><span${EN ? ' class="on"' : ''}>EN</span>`;
+  toggle.setAttribute('aria-label', T('English로 보기', '한국어로 보기'));
+  toggle.title = T('English', '한국어');
+  toggle.addEventListener('click', () => window.setLang(EN ? 'ko' : 'en'));
+
+  // yunmin.dev로 가는 링크는 같은 언어로 열리게
+  if (EN) document.querySelectorAll('a[href="https://yunmin.dev"]').forEach((a) => { a.href = 'https://yunmin.dev/?lang=en'; });
+
+  /* ---------- HTML에 직접 적힌 글자 (영어) ---------- */
+  if (EN) {
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      if (el.tagName === 'META') el.setAttribute('content', el.dataset.en);
+      else el.innerHTML = el.dataset.en;
+    });
+  }
+  document.documentElement.classList.add('i18n-ready');
 })();
