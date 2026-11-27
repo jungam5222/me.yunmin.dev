@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/cv.css">
   <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/mode.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -26,9 +27,10 @@
         <span>me.yunmin<b>.dev</b></span>
       </a>
       <nav class="top-actions">
+        <button type="button" class="style-toggle" id="style-toggle"></button>
         <button type="button" class="lang-toggle" id="lang-toggle"><span class="on">KO</span><span class="sep">/</span><span>EN</span></button>
         <a class="top-link" href="https://yunmin.dev">yunmin.dev <span aria-hidden="true">↗</span></a>
-        <button class="btn small" type="button" id="print-btn">PDF로 저장</button>
+        <button class="btn small" type="button" id="print-btn"><span class="pdf-long">PDF로 저장</span></button>
       </nav>
     </div>
   </header>

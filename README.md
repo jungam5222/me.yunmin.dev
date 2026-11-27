@@ -18,9 +18,13 @@
 
 영어 글자는 `data.js`의 각 항목 `en: { ... }`에 적어요. `en`에 없는 필드는 한국어가 그대로 나옵니다. 영어로 PDF를 저장하려면 EN으로 바꾼 뒤 'Save as PDF'를 누르면 돼요.
 
+## 디자인: 클라이밍 / 심플
+
+오른쪽 위 홀드 / 문서 아이콘 토글로 디자인을 바꿔요. 심플은 홀드, 색 테이프, 점무늬, 숫자 카드를 빼고 흑백으로 정리한 사무적인 CV예요. 내용은 똑같고 CSS만 달라서 새로고침 없이 바로 바뀌어요. 고른 디자인은 기억되고, 주소에 `?style=simple` / `?style=climb`를 붙이면 그 디자인으로 열려요 (`assets/js/mode.js`). 언어 토글과 같이 써서 `?lang=en&style=simple`처럼 보낼 수도 있어요.
+
 ## PDF
 
-오른쪽 위 'PDF로 저장' 버튼(또는 Ctrl/Cmd + P)으로 A4 한두 장짜리 PDF가 나와요. 인쇄용 스타일이 따로 있어서 배경 점무늬와 버튼은 빠지고, 링크는 주소로 바뀝니다.
+오른쪽 위 'PDF로 저장' 버튼(또는 Ctrl/Cmd + P)으로 지금 보이는 언어와 디자인 그대로 A4 한두 장짜리 PDF가 나와요. 인쇄용 스타일이 따로 있어서 배경 점무늬와 버튼은 빠지고, 링크는 주소로 바뀝니다.
 
 ## 구조
 
@@ -30,6 +34,7 @@ index.html            CV 페이지
 assets/js/data.js     CV 내용
 assets/js/cv.js       렌더링
 assets/js/i18n.js     언어 고르기 (KO / EN)
+assets/js/mode.js     디자인 고르기 (클라이밍 / 심플)
 assets/js/holds.js    클라이밍 홀드 SVG 생성기 (my-site와 같은 파일)
 assets/css/cv.css     스타일 (화면 + 인쇄)
 wrangler.jsonc        Cloudflare Workers 설정 (Worker 이름: cv-site)

@@ -79,6 +79,17 @@ p { margin: 0; }
 .lang-toggle .on { color: var(--ink); font-weight: 700; }
 .lang-toggle .sep { opacity: .5; }
 .lang-toggle:hover { border-color: var(--line-2); color: var(--ink-2); }
+/* 디자인 토글 (클라이밍 / 심플) — 지금 디자인 쪽이 진하게 */
+.style-toggle {
+  display: inline-flex; align-items: center; gap: 4px; flex: none; cursor: pointer; color: var(--muted);
+  background: none; border: 1px solid transparent; border-radius: 999px; padding: 4px 8px;
+  font: 500 12px/1 var(--mono); transition: border-color .15s;
+}
+.style-toggle:hover { border-color: var(--line-2); }
+.style-toggle .opt { display: inline-flex; opacity: .35; filter: grayscale(1); transition: opacity .15s, filter .15s; }
+.style-toggle .opt.on { opacity: 1; filter: none; color: var(--ink); }
+.style-toggle .sep { opacity: .5; }
+.pdf-short { display: none; }
 /* 영어일 때 한국어 글자가 잠깐 보이지 않게 */
 html.lang-en:not(.i18n-ready) body { visibility: hidden; }
 
@@ -169,11 +180,61 @@ html.lang-en:not(.i18n-ready) body { visibility: hidden; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
+/* ---------- 심플 디자인: 홀드, 색, 점무늬 없이 흑백 CV ---------- */
+html.style-simple { --bg: #FFFFFF; --card: #FFFFFF; --ink: #111111; --ink-2: #3A3A3A; --muted: #6B6B6B; --line: #E2E2E2; --line-2: #CFCFCF; --radius: 4px; }
+html.style-simple body::before { display: none; }
+html.style-simple .hold-svg { display: none; }
+html.style-simple .style-toggle .hold-svg { display: block; }
+html.style-simple .topbar { background: rgba(255,255,255,.92); }
+html.style-simple .logo { gap: 0; }
+html.style-simple .logo b { color: inherit; }
+html.style-simple .btn { border-radius: 6px; }
+html.style-simple .btn:hover { transform: none; box-shadow: none; background: #333; }
+
+html.style-simple .hero { padding-top: 44px; padding-bottom: 0; }
+html.style-simple .item-date, html.style-simple .eyebrow { font-family: var(--font); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+html.style-simple .hero h1 { font-size: clamp(2.1rem, 6vw, 2.9rem); letter-spacing: -0.03em; }
+html.style-simple .hero h1 .dot { display: none; }
+html.style-simple .hero-sub { gap: 0; font-family: var(--font); font-size: 15px; }
+html.style-simple .hero-sub span { border: 0; border-radius: 0; padding: 0; background: none; }
+html.style-simple .hero-sub span + span::before { content: '·'; margin: 0 8px; color: var(--muted); }
+html.style-simple .hero-sub .name { font-size: 15px; }
+html.style-simple .highlights { display: none; }
+html.style-simple .links { margin-bottom: 22px; }
+
+html.style-simple .cv-sec { padding-top: 26px; }
+html.style-simple .sec-head { padding-bottom: 6px; margin-bottom: 8px; border-bottom: 1px solid var(--ink); gap: 4px 10px; }
+html.style-simple .tape { display: none; }
+html.style-simple .sec-head h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+html.style-simple .sec-sub { font-size: 13.5px; }
+
+html.style-simple .items::before { display: none; }
+html.style-simple .item { grid-template-columns: 128px minmax(0, 1fr); padding: 8px 0; }
+html.style-simple .item-hold { display: none; }
+html.style-simple .item-head h3 { font-size: 1rem; }
+html.style-simple .result,
+html.style-simple .tag { background: none; color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 4px; font-family: var(--font); font-size: 12px; font-weight: 600; padding: 0 6px; }
+html.style-simple .tag { color: var(--muted); font-weight: 500; }
+html.style-simple .tag.soon { border-style: solid; }
+html.style-simple .item-links a { color: var(--ink-2); }
+html.style-simple .skill-row { grid-template-columns: 128px 1fr; }
+html.style-simple .skill-group { color: var(--ink); font-family: var(--font); font-size: 14px; }
+html.style-simple .chips { gap: 0; }
+html.style-simple .chip { border: 0; background: none; padding: 0; font-size: 14.5px; color: var(--ink-2); }
+html.style-simple .chip + .chip::before { content: ', '; }
+html.style-simple .foot { border-top-style: solid; }
+
 /* ---------- 모바일 ---------- */
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
   .topbar-inner { height: 54px; }
   .top-link { display: none; }
+  .top-actions { gap: 2px; }
+  .pdf-long { display: none; }
+  .pdf-short { display: inline; }
+  html.style-simple .item { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  html.style-simple .item-date, html.style-simple .item-main { grid-column: 1; }
+  html.style-simple .skill-row { grid-template-columns: 1fr; }
   .hero { padding-top: 32px; }
   .links { grid-template-columns: 1fr; }
   .highlights { grid-template-columns: 1fr; gap: 8px; }
@@ -217,4 +278,10 @@ html.lang-en:not(.i18n-ready) body { visibility: hidden; }
   .chip { font-size: 9.5pt; padding: 0 8px; }
   .skills { gap: 6px; }
   .foot { margin-top: 18px; padding: 8px 0 0; }
+  html.style-simple .hero { padding-bottom: 6px; }
+  html.style-simple .hero h1 { font-size: 24pt; }
+  html.style-simple .links { margin-bottom: 10px; }
+  html.style-simple .cv-sec { padding-top: 12px; }
+  html.style-simple .item { grid-template-columns: 110px minmax(0, 1fr); padding: 3px 0; }
+  html.style-simple .chip { font-size: 10pt; }
 }

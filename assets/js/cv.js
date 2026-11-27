@@ -109,13 +109,27 @@
   }).join('');
 
   /* ---------- 상단 버튼 ---------- */
-  $('print-btn').textContent = T('PDF로 저장', 'Save as PDF');
+  $('print-btn').innerHTML = `<span class="pdf-long">${T('PDF로 저장', 'Save as PDF')}</span><span class="pdf-short">PDF</span>`;
   $('print-btn').addEventListener('click', () => window.print());
   const toggle = $('lang-toggle');
   toggle.innerHTML = `<span${EN ? '' : ' class="on"'}>KO</span><span class="sep">/</span><span${EN ? ' class="on"' : ''}>EN</span>`;
   toggle.setAttribute('aria-label', T('English로 보기', '한국어로 보기'));
   toggle.title = T('English', '한국어');
   toggle.addEventListener('click', () => window.setLang(EN ? 'ko' : 'en'));
+
+  // 디자인 토글: 클라이밍 ↔ 심플. 지금 디자인 쪽이 진하게 보여요
+  const styleBtn = $('style-toggle');
+  const docIcon = '<svg class="doc-icon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 5.5h6M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+  function paintStyle() {
+    const simple = window.STYLE === 'simple';
+    styleBtn.innerHTML = `<span class="opt${simple ? '' : ' on'}">${H.svg({ seed: 7, type: 'jug', color: 'red', size: 15, rotate: 20 })}</span><span class="sep">/</span><span class="opt${simple ? ' on' : ''}">${docIcon}</span>`;
+    const label = simple ? T('클라이밍 디자인으로 보기', 'Switch to the climbing design') : T('심플한 CV로 보기', 'Switch to a plain CV');
+    styleBtn.setAttribute('aria-label', label);
+    styleBtn.title = label;
+  }
+  paintStyle();
+  styleBtn.addEventListener('click', () => window.setStyle(window.STYLE === 'simple' ? 'climb' : 'simple'));
+  document.addEventListener('stylechange', paintStyle);
 
   // yunmin.dev로 가는 링크는 같은 언어로 열리게
   if (EN) document.querySelectorAll('a[href="https://yunmin.dev"]').forEach((a) => { a.href = 'https://yunmin.dev/?lang=en'; });
